@@ -1,0 +1,16 @@
+import { NextResponse } from "next/server"
+import { addEntry } from "@/lib/db"
+
+export async function POST(req: Request) {
+  const body = await req.json()
+  const { name, website, message } = body
+
+  try {
+    const entry = await addEntry({ name, website, message })
+    return NextResponse.json(entry, { status: 201 })
+  } catch (error) {
+    console.error("Error in submit route:", error)
+    return NextResponse.json({ error: "Failed to submit entry" }, { status: 500 })
+  }
+}
+
