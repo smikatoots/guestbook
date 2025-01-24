@@ -61,7 +61,8 @@ export async function deleteEntry(id: number) {
       WHERE id = ${id}
       RETURNING *;
     `
-    return result.rowCount > 0
+    const rowCount = result.rowCount ?? 0;
+    return rowCount > 0
   } catch (error) {
     console.error("Error deleting entry:", error)
     throw error

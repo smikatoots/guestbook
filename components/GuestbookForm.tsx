@@ -78,7 +78,7 @@ export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
         <Label htmlFor="email" className="text-base font-medium">
           Email
         </Label>
-        <p className="text-sm text-gray-500 mb-2">So I can thank you! This won't be shown publicly.</p>
+        <p className="text-sm text-gray-500 mb-2">{`So I can thank you! This won't be shown publicly.`}</p>
         <Input
           id="email"
           type="email"

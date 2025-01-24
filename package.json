@@ -22,6 +22,9 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.5",
+    "@types/body-parser": "^1.19.5",
+    "@types/bonjour": "^3.5.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
