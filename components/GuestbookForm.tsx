@@ -49,7 +49,6 @@ export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
         <Label htmlFor="message" className="text-base font-medium">
           Your message
         </Label>
-        <p className="text-sm text-gray-500 mb-2">Your message</p>
         <Textarea
           id="message"
           value={message}
@@ -63,7 +62,6 @@ export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
         <Label htmlFor="name" className="text-base font-medium">
           First & last name
         </Label>
-        <p className="text-sm text-gray-500 mb-2">First & last name</p>
         <Input
           id="name"
           type="text"
@@ -93,7 +91,6 @@ export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
         <Label htmlFor="website" className="text-base font-medium">
           Website (optional)
         </Label>
-        <p className="text-sm text-gray-500 mb-2">Website (optional)</p>
         <Input
           id="website"
           type="url"
