@@ -3,10 +3,10 @@ import { addEntry } from "@/lib/db"
 
 export async function POST(req: Request) {
   const body = await req.json()
-  const { name, website, message } = body
+  const { name, website, email, message } = body
 
   try {
-    const entry = await addEntry({ name, website, message })
+    const entry = await addEntry({ name, website, email, message })
     return NextResponse.json(entry, { status: 201 })
   } catch (error) {
     console.error("Error in submit route:", error)
