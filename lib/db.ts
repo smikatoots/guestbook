@@ -32,6 +32,7 @@ export async function addEntry({
       VALUES (${name}, ${email}, ${website}, ${message})
       RETURNING *;
     `
+    console.log("Entry added")
     return result.rows[0]
   } catch (error) {
     console.error("Error adding entry:", error)
@@ -46,6 +47,7 @@ export async function getEntries() {
       SELECT * FROM guestbook
       ORDER BY created_at DESC;
     `
+    console.log("Entries loaded")
     return result.rows
   } catch (error) {
     console.error("Error fetching entries:", error)
