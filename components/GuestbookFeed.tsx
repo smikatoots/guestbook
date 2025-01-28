@@ -1,9 +1,6 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 
-interface Entry {
+export interface Entry {
   id: number
   name: string
   website?: string
@@ -11,36 +8,10 @@ interface Entry {
 }
 
 interface GuestbookFeedProps {
-  refreshTrigger: number
+  entries: Entry[];
 }
 
-export default function GuestbookFeed({ refreshTrigger }: GuestbookFeedProps) {
-  const [entries, setEntries] = useState<Entry[]>([])
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    fetchEntries()
-  }, [refreshTrigger])
-
-  const fetchEntries = async () => {
-    try {
-      const res = await fetch("/api/entries")
-      if (!res.ok) {
-        throw new Error("Failed to fetch entries")
-      }
-      const data = await res.json()
-      setEntries(data)
-      setError(null)
-    } catch (err) {
-      console.error("Error fetching entries:", err)
-      setError("Failed to load entries. Please try again later.")
-    }
-  }
-
-  if (error) {
-    return <div className="text-red-500">{error}</div>
-  }
-
+export default function GuestbookFeed({ entries }: GuestbookFeedProps) {
   return (
     <div className="space-y-4">
       {entries.map((entry: Entry) => (

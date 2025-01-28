@@ -6,11 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 
-interface GuestbookFormProps {
-  onEntryAdded: () => void
-}
-
-export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
+export default function GuestbookForm() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [website, setWebsite] = useState("")
@@ -36,7 +32,7 @@ export default function GuestbookForm({ onEntryAdded }: GuestbookFormProps) {
       setEmail("")
       setWebsite("")
       setMessage("")
-      onEntryAdded()
+      window.location.reload();
     } catch (err) {
       console.error("Error submitting entry:", err)
       setError("Failed to submit entry. Please try again later.")
